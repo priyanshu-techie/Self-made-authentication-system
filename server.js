@@ -12,3 +12,5 @@ connectDb();
 app.use('/',routes);
 
 app.listen(8000,()=>{console.log("server running at 8000")})
+
+// find with object id and not user name

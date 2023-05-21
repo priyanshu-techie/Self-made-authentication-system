@@ -15,16 +15,13 @@ async function checkBeforeRegister(req,res,next){
 }
 
 async function checkBeforLogin(req,res,next){
+    // check if user exists or not. 
     let user=await Users.find({userName:req.body.userId});
-    if(user.length){
-        if(user[0].password!==req.body.password){
-            return res.render('login.ejs',{err:true,msg:"Password Incorrect."});
-        }
-        else next();
-    }
-    else{
-        res.render('login.ejs',{err:true,msg:"User doesn't exist, Register."});
-    }
+    if(user.length)
+        next();
+    
+    else
+        res.render('login.ejs',{err:true,msg:"User doesn't exist, Register."});  
 }
 
 module.exports={
