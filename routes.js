@@ -12,7 +12,7 @@ router.get('/',(req,res)=>{
 router.get('/register',(req,res)=>res.render('register.ejs',{err:false}));
 router.get('/home',(req,res)=>{res.render('home.ejs')});
 router.get('/login',(req,res)=>res.render('login.ejs',{err:false}));
-router.get('*',(req,res)=>res.status(404).end())
+router.get('*',(req,res)=>res.status(404).end("404 error , no such page found"))
 
 
 
